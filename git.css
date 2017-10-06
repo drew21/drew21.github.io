@@ -1,6 +1,7 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   width:960px;
+  background-color: #CCCCCC;
 }
 
 p{
@@ -34,7 +35,7 @@ p{
 	position:absolute;
 	top:0;
 	left:0;
-width:110px;
+	width:110px;
 	font-weight:bold;
 	font-size:13px;
 	color:#ffffff;
