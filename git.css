@@ -30,6 +30,11 @@ div.sp {
     padding:5px 5px 5px 25px;
 	margin:5px;
 }
+
+ul.b {
+	margin-left: 20px;
+    list-style-type: disc;
+}
 div.spback {
 	padding:5px 5px 5px 25px;
 	text-align: left;
@@ -210,4 +215,15 @@ li {
 .TextWrap{
 float: right;
 margin: 10px;
+}
+.alignleft{
+ float: left;
+ font-weight:bold;
+ font-size: 15px;
+ 
+}
+
+.alignright{
+float: right;
+font-size: 15px;
 }
