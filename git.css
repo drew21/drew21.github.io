@@ -73,7 +73,7 @@ div.spback {
 	position:absolute;
 	top:0;
 	left:0;
-	width:160px;
+	width:190px;
 	font-weight:bold;
 	font-size:13px;
 	color:#ffffff;
@@ -102,7 +102,7 @@ div.spback {
 
 .skillbar-bar {
 	height:35px;
-	width:160px;
+	width:0px;
 	background:#6adcfa;
 	border-radius:3px;
 	-moz-border-radius:3px;
