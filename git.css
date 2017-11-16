@@ -222,7 +222,22 @@ margin: 10px;
  font-size: 15px;
  
 }
-
+table#holder {
+    border: 5px dashed #CCC;
+    width:400px;
+    font-family:Verdana;
+}
+table#holder tr:first-child {
+    height:50px;
+    text-align:center;
+}
+table#holder tr:last-child {
+   height:300px;
+   line-height: 50px;
+}
+table#holder li img {
+    height: 30px;
+}
 .alignright{
 float: right;
 font-size: 15px;
