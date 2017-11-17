@@ -28,7 +28,7 @@ $('#holder').on({
     });
 }
     }
-});
+}});
 function addEventHandler(obj, evt, handler) {
     if(obj.addEventListener) {
         // W3C method
