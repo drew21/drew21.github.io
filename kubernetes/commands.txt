@@ -1,0 +1,95 @@
+kubectl cluster-info   - gives ip addres of control plane and core DNS
+kubectl get nodes       - look at the nodes
+kubectl get namespaces  -  namespace created by default
+kubectl get pods -A     -  pods -A see pods in every namespace  pods are how containers are run in kubernetes also contain software to run clusters
+kubectl get services -A   -  see services rnuning in a cluster
+
+yaml 
+--- is the begining of doc
+hash or number sign is a comment
+
+kubectl get deployments -n development   -----------
+
+kubectl apply -f test.yaml
+namespace/development unchanged
+namespace/production created
+
+ kubectl delete -f test.yaml
+ 
+ #List namespaces
+ kubectl get ns
+ 
+ #list pods in namesapce
+ kubectl get pods -n development
+ 
+####Checking the Helth of a pod by looking at the logs
+kubectl get pods -n development
+
+kubectl describe pod pod-info-deployment-7587d5cc86-z7vx2 -n development
+
+If there is nothing wrong you will see none in the events
+
+###Create a Pod running Busy Box
+kubectl apply -f busybox.yaml
+
+#### Checks to see if it was crerated
+kubectl get pods 
+
+## find the IP of pods
+kubectl get pods -n development -o wide
+NAME                                   READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
+pod-info-deployment-7587d5cc86-qdrz6   1/1     Running   0          123m    10.244.0.8   minikube   <none>           <none>
+pod-info-deployment-7587d5cc86-z7vx2   1/1     Running   0          3h50m   10.244.0.3   minikube   <none>           <none>
+pod-info-deployment-7587d5cc86-ztfgh   1/1     Running   0          127m    10.244.0.7   minikube   <none>           <none>
+
+###use busy box to make http request      exec runs commands in a container
+kubectl exec -it busybox-74b7c48b46-ng5qv -- /bin/sh    - had to run as administrator in powershell
+wget 10.244.0.8:3000                                    -3000 came from the .yaml file
+By runnin cat index.html you will see a json that contains the enviroment varibles we set in the yaml.
+
+###Verify your Application Logs
+#get the pods from namespace devlopement
+kubectrl get pods -n developement
+
+kubctl logs pod-info-deployment-7587d5cc86-qdrz6 -n development
+
+Kubernete service  - expose the aplication to the internet using a load balancer
+
+###create a service:
+open a seperate command and run minikube tunnel
+
+###find external ip address and use browser to make a request :
+kubectl get services -n development
+
+##localhost
+open 127.0.0.1 you should see the same info in the json displayed
+
+go back to where the minikube tunnel is runn and use ctrl c to stop it
+
+### Delete objects
+kubectl delete -f namespace.yaml
+
+###Delete minikube
+minikube delete
+
+
+###Kubernetes Control Panel:
+
+##see all api objects and commands
+kubctl api-resources
+##see the kue api server
+kubctrl -n kube system get pods
+
+##scan with snyk 
+snyk iac test deployment.yaml
+ had to authenticate synk through github fir it to work
+ 
+ ###Kubernetes hardening Guide on Security Online
+ update kubernetes regularly
+ 
+ https:://www.cncf.io
+ 
+
+
+
+
