@@ -1,0 +1,1 @@
+	Go to [INDEX PAGE](index.md)
